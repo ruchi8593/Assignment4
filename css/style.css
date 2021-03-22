@@ -1,0 +1,42 @@
+form {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: normal;
+    font-size: 20px;
+}
+
+p {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+h1,
+h2 {
+    text-align: center;
+    font-family: sans-serif;
+    font-style: italic;
+    padding-bottom: 10px;
+}
+
+h4 {
+    text-align: center;
+    color: green;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+}
+
+.error {
+    color: red;
+}
+
+#cancel{
+    background-color: #c7abe6;
+}
+
