@@ -1,0 +1,49 @@
+<html>
+    <title>Message Board Using AJAX</title>
+<head>
+</head>
+ <body>
+ <div id="display">
+ </div>
+ <h2>Message Board</h2>
+ <p><input id="message" type="text" name="message" placeholder="Message"></p>
+ <p><input id="username" type="text" name="username" placeholder="User Name"></p>
+ <p>
+ <button type="button" onclick="postdata()">Submit Message</button>
+ </p>
+ </body>
+<script>  
+
+function getmessage() {
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("display").innerHTML = this.responseText;
+            }
+        }
+        httpRequest.open("GET", "messages.php", true);
+        httpRequest.send();
+
+}
+
+function postdata() {
+    var httpRequest = new XMLHttpRequest();
+        var formdata = new FormData();
+        formdata.append("username", document.getElementById("username").value);
+        formdata.append("message", document.getElementById("message").value);
+        httpRequest.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("display").innerHTML = this.responseText;
+            }
+        };
+        
+        httpRequest.open("POST", "input.php", true);
+        httpRequest.send(formdata);
+
+}
+getmessage();
+setInterval(function(){
+    getmessage();
+},1000);
+ </script>
+ </html>
