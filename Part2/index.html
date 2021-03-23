@@ -1,16 +1,21 @@
 <html>
     <title>Message Board Using AJAX</title>
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
 </head>
  <body>
  <div id="display">
  </div>
- <h2>Message Board</h2>
- <p><input id="message" type="text" name="message" placeholder="Message"></p>
- <p><input id="username" type="text" name="username" placeholder="User Name"></p>
- <p>
- <button type="button" onclick="postdata()">Submit Message</button>
- </p>
+ <div class="container-fluid">
+    <h2>Message Board</h2>
+    <p><input id="message" type="text" name="message" placeholder="Message"></p>
+    <p><input id="username" type="text" name="username" placeholder="User Name"></p>
+    <p>
+    <button type="button" onclick="postdata()" class="btn btn-success">Submit Message</button>
+    </p>
+ </div>
+
  </body>
 <script>  
 
@@ -41,9 +46,10 @@ function postdata() {
         httpRequest.send(formdata);
 
 }
-getmessage();
+
 setInterval(function(){
     getmessage();
 },1000);
+getmessage();
  </script>
  </html>

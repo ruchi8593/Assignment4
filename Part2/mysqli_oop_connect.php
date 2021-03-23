@@ -1,8 +1,8 @@
-<?php # Script 9.2 - mysqli_connect.php
-
+<?php # Script 16.1 - mysqli_oop_connect.php
 // This file contains the database access information.
 // This file also establishes a connection to MySQL,
 // selects the database, and sets the encoding.
+// The MySQL interactions use OOP!
 
 // Set the database access information as constants:
 define('DB_USER', 'root');
@@ -11,7 +11,12 @@ define('DB_HOST', 'localhost');
 define('DB_NAME', 'ruchitatrivedi');
 
 // Make the connection:
-$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR die('Could not connect to MySQL: ' . mysqli_connect_error() );
+$mysqli = new MySQLi(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-// Set the encoding...
-mysqli_set_charset($dbc, 'utf8');
+// Verify the connection:
+if ($mysqli->connect_error) {
+	echo $mysqli->connect_error;
+	unset($mysqli);
+} else { // Establish the encoding.
+	$mysqli->set_charset('utf8');
+}
